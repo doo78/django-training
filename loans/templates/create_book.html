@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library | New Book</title>
+</head>
+<body>
+    <h1>New Book</h1>
+    <form action="{% url 'create_book' %}" method="post">
+        {% csrf_token %} <!--Prevents attacks-->
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>
