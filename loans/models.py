@@ -9,3 +9,5 @@ class Book (models.Model):
     
     def __str__(self):
         return (f"{self.authors} ({self.publication_date.year}) \"{self.title}\" ISBN {self.isbn}.")
+    
+    

@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Book</title>
-</head>
+{% extends "base_page.html" %}
+
+{% block title %}
+Book
+{% endblock %}
+
+{% block content %}
 <body>
     <h1>The book</h1>
     <ul>
@@ -12,4 +14,5 @@
     <!--<a href="/books">All Books</a>-->
     <a href="{% url 'books' %}">All Books</a>
 </body>
-</html>
+
+{% endblock %}

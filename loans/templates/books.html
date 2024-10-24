@@ -1,18 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Book List</title>
-</head>
-<body>
-    <h1>All Books</h1>
-    <ul>
-        {% for book in books %}
-            <li>{{ book.title }} by {{ book.authors }} (Published on {{ book.publication_date }}) 
-                <a href="{% url 'get_book' book.id%}">Show</a>
-                <a href="{% url 'update_book' book.id%}">Update</a>
-                <a href="{% url 'load_delete_book' book.id%}">Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base_page.html" %}
+
+{% block title %}
+My Library | Books
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+
+        <div class="col-sm-12 col-md-8">
+            <h1>All Books</h1>
+            <!--
+            <ul>
+                {% for book in books %}
+                    <li>{{ book.title }} by {{ book.authors }} (Published on {{ book.publication_date }}) 
+                        <a href="{% url 'get_book' book.id%}">Show</a>
+                        <a href="{% url 'update_book' book.id%}">Update</a>
+                        <a href="{% url 'load_delete_book' book.id%}">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        -->
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Authors</th>
+                    <th scope="col">Publication Date</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.authors }}</td>
+                    <td>{{ book.publication_date }}</td>
+                    <td>
+                        <a href="{% url 'get_book' book.id%}"><i class="bi bi-eye"></i></a>
+                        <a href="{% url 'update_book' book.id%}"><i class="bi bi-pencil"></i></a>
+                        <a href="{% url 'load_delete_book' book.id%}"><i class="bi bi-trash"></i></a>
+                    </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+        </div>
+    </div>
+</div> 
+{% endblock %} 
+
