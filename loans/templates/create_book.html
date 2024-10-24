@@ -8,10 +8,7 @@ New Book
 <body>
     <h1>New Book</h1>
     <form action="{% url 'create_book' %}" method="post">
-        {% csrf_token %} <!--Prevents attacks-->
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-
+        {% include "__book_form.html" with form=form submit_text="Create" %}
     </form>
 
 </body>
